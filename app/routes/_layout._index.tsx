@@ -1,6 +1,4 @@
-import { fakerZH_CN as faker } from "@faker-js/faker";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
+import { faker } from "@faker-js/faker/locale/zh_CN";
 import { Box, Stack, Typography } from "@mui/material";
 import { useLoaderData } from "@remix-run/react";
 import dayjs from "dayjs";
@@ -14,26 +12,28 @@ export default function Component() {
   const loader_data = useLoaderData<typeof loader>();
   return (
     <Stack spacing={4}>
-      <Typography variant="h1" sx={{ fontWeight: "bold" }}>
+      <Typography
+        variant="h1"
+        sx={{
+          fontWeight: "bold",
+          fontSize: ["1.6rem", "2.2rem"],
+          lineHeight: [1.6, 1.4],
+        }}
+      >
         {loader_data.title}
       </Typography>
 
-      <Stack spacing={3} direction={"row"} sx={{ lineHeight: 1 }}>
-        <Stack direction={"row"} spacing={1} alignItems={"center"}>
-          <AccountCircleOutlinedIcon fontSize="small" />
-          <Box>{loader_data.author}</Box>
-        </Stack>
-
-        <Stack direction={"row"} spacing={1} alignItems={"center"}>
-          <EventOutlinedIcon fontSize="small" />
-          <Box>{loader_data.date}</Box>
-        </Stack>
+      <Stack spacing={2} sx={{ lineHeight: 1 }}>
+        <Box>{loader_data.author}</Box>
+        <Box>{loader_data.date}</Box>
       </Stack>
+
       <Box
         sx={{
           lineHeight: 2,
           "& > p": {
             mb: 6,
+            mt: 0,
           },
         }}
       >
@@ -49,7 +49,7 @@ export async function loader() {
     content = content + faker.lorem.paragraph(10) + "\n\n";
   }
   return {
-    title: faker.word.words({ count: 1 }),
+    title: faker.lorem.sentence({ min: 10, max: 20 }),
     content: content,
     author: faker.person.fullName(),
     date: dayjs(faker.date.anytime()).format("YYYY年MM月DD日"),

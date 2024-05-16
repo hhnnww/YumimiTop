@@ -20,7 +20,7 @@ function Logo() {
     <Typography
       variant="h1"
       sx={{
-        fontSize: "1.3rem",
+        fontSize: ["1rem", "1.3rem"],
         fontWeight: "bold",
         textTransform: "uppercase",
       }}
