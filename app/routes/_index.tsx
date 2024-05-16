@@ -1,41 +1,25 @@
-import type { MetaFunction } from "@remix-run/node";
+import { Box, Container, Stack, TextField, Typography } from "@mui/material";
+import { prisma } from "prisma/prisma.server";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
-
-export default function Index() {
+export default function Component() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <Box p={6}>
+      <Container maxWidth={"sm"}>
+        <Stack spacing={4}>
+          <Typography variant="h1">hello word!</Typography>
+          <TextField label="username" />
+        </Stack>
+      </Container>
+    </Box>
   );
+}
+
+export async function loader() {
+  const res = await prisma.post.create({
+    data: {
+      title: "text",
+      content: "content",
+    },
+  });
+  return res;
 }
