@@ -16,7 +16,7 @@ export default function Component() {
         variant="h1"
         sx={{
           fontWeight: "bold",
-          fontSize: ["1.6rem", "2.2rem"],
+          fontSize: ["1.6rem", "2rem"],
           lineHeight: [1.6, 1.4],
         }}
       >
