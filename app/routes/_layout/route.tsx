@@ -34,6 +34,5 @@ export async function loader({ request }: LoaderFunctionArgs) {
   if (session.has("userId")) {
     return { login: true, username: session.get("userId") as string };
   }
-
   return { login: false, username: "" };
 }

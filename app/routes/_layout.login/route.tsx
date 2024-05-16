@@ -1,4 +1,4 @@
-import { Button, Stack, TextField } from "@mui/material";
+import { Alert, Button, Stack, TextField } from "@mui/material";
 import { ActionFunctionArgs } from "@remix-run/node";
 import { Form, redirect, useActionData } from "@remix-run/react";
 import bcrypt from "bcrypt";
@@ -17,7 +17,11 @@ export default function Component() {
             登录
           </Button>
 
-          {JSON.stringify(action_data)}
+          {action_data && (
+            <Alert color="error" sx={{ width: "100%" }} variant="filled">
+              {action_data}
+            </Alert>
+          )}
         </Stack>
       </Form>
     </>
@@ -46,7 +50,7 @@ export async function action({ request }: ActionFunctionArgs) {
     return "密码错误";
   }
 
-  const session = await getSession();
+  const session = await getSession(request.headers.get("Cookie"));
   session.set("userId", username);
 
   return redirect("/admin", {
