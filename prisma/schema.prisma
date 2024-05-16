@@ -15,7 +15,21 @@ datasource db {
 }
 
 model post {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  title   String?
-  content String?
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug         String
+  title        String   @default("")
+  content      String   @default("")
+  like         Int      @default(0)
+  view         Int      @default(0)
+  create_date  DateTime @default(now())
+  publish_date DateTime @default(now())
+}
+
+model user {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  username    String
+  nikename    String   @default("无名大侠")
+  password    String
+  status      Int      @default(0)
+  create_date DateTime @default(now())
 }

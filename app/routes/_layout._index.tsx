@@ -28,15 +28,7 @@ export default function Component() {
         <Box>{loader_data.date}</Box>
       </Stack>
 
-      <Box
-        sx={{
-          lineHeight: 2,
-          "& > p": {
-            mb: 6,
-            mt: 0,
-          },
-        }}
-      >
+      <Box className="post">
         <Markdown>{loader_data.content}</Markdown>
       </Box>
     </Stack>

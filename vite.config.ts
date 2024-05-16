@@ -11,6 +11,8 @@ export default defineConfig({
   plugins: [
     remix(),
     tsconfigPaths(),
-    cjsInterop({ dependencies: ["@mui/icons-material/*"] }),
+    cjsInterop({
+      dependencies: ["@mui/icons-material/*", "@mui/material/Unstable_Grid2"],
+    }),
   ],
 });
