@@ -11,6 +11,10 @@ export const components: CssVarsThemeOptions["components"] = {
         {
           WebkitBoxShadow: "0 0 0 30px rgb(18,18,18) inset !important",
         },
+
+      body: {
+        FontFamily: ["Montserrat", "sans-serif"].join(","),
+      },
     },
   },
 };
