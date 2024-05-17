@@ -19,7 +19,7 @@ export default function Component() {
         </Typography>
 
         <Box
-          sx={{ lineHeight: 2.2, fontSize: "1.2rem", "&>p": { mb: 4, mt: 0 } }}
+          sx={{ lineHeight: 2.2, fontSize: "1.1rem", "&>p": { mb: 4, mt: 0 } }}
         >
           <Markdown>{loaderData?.content}</Markdown>
         </Box>

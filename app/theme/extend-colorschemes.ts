@@ -15,7 +15,7 @@ export const color_schemes: CssVarsThemeOptions["colorSchemes"] = {
         main: "rgb(41, 112, 255)",
       },
       text: {
-        primary: "rgba(189,189,189,.4)",
+        primary: "rgba(189,189,189,.3)",
       },
     },
   },
