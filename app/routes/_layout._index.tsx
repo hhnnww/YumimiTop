@@ -18,7 +18,7 @@ export default function Component() {
           {loaderData?.title}
         </Typography>
 
-        <Box sx={{ lineHeight: 2, "&>p": { mb: 4, mt: 0 } }}>
+        <Box sx={{ lineHeight: 2.2, "&>p": { mb: 4, mt: 0 } }}>
           <Markdown>{loaderData?.content}</Markdown>
         </Box>
       </Stack>

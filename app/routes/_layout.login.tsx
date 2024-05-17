@@ -7,13 +7,14 @@ export default function Component() {
   const actionData = useActionData<typeof action>();
   return (
     <>
-      <Form method="POST">
+      <Form method="POST" autoComplete="off">
         <Stack direction={"column"} spacing={2} alignItems={"start"}>
           <TextField
             label="password"
             fullWidth
             type="password"
             name="password"
+            autoComplete="off"
           />
           <Button type="submit" variant="contained">
             提交
