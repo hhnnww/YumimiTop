@@ -13,12 +13,12 @@ export default function Component() {
       <Stack spacing={4} direction={"column"}>
         <Typography
           variant="h1"
-          sx={{ fontSize: "1.8rem", fontWeight: "bold" }}
+          sx={{ fontSize: "1.6rem", fontWeight: "bold" }}
         >
           {loaderData?.title}
         </Typography>
 
-        <Box sx={{ lineHeight: 2, "&>p": { mb: 6, mt: 0 } }}>
+        <Box sx={{ lineHeight: 2, "&>p": { mb: 4, mt: 0 } }}>
           <Markdown>{loaderData?.content}</Markdown>
         </Box>
       </Stack>
