@@ -68,12 +68,4 @@ export const components: CssVarsThemeOptions["components"] = {
       },
     },
   },
-
-  MuiDivider: {
-    styleOverrides: {
-      root: {
-        opacity: 0.5,
-      },
-    },
-  },
 };
