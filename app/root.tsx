@@ -11,8 +11,8 @@ import {
 import { useContext, useEffect, useRef } from "react";
 
 import "@fontsource/montserrat/300.css";
-import "@fontsource/montserrat/400.css";
-import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/700.css";
 
 import { CssBaseline, Experimental_CssVarsProvider } from "@mui/material";
 import ClientStyleContext from "~/styles/client.context";
@@ -74,10 +74,7 @@ const Document = withEmotionCache(
           ))}
         </head>
         <body>
-          <Experimental_CssVarsProvider
-            theme={theme}
-            defaultColorScheme={"dark"}
-          >
+          <Experimental_CssVarsProvider theme={theme} defaultMode="light">
             <CssBaseline enableColorScheme />
             {children}
           </Experimental_CssVarsProvider>

@@ -37,6 +37,7 @@ export const components: CssVarsThemeOptions["components"] = {
         "&.Mui-focused": {
           outline: `2px solid ${theme.vars.palette.primary.main}`,
           backgroundColor: "transparent",
+          borderColor: "transparent",
         },
         borderRadius: theme.vars.shape.borderRadius,
         backgroundColor: "transparent",
@@ -57,6 +58,22 @@ export const components: CssVarsThemeOptions["components"] = {
   MuiFormControl: {
     defaultProps: {
       variant: "filled",
+    },
+  },
+
+  MuiButton: {
+    styleOverrides: {
+      root: {
+        fontWeight: "bold",
+      },
+    },
+  },
+
+  MuiDivider: {
+    styleOverrides: {
+      root: {
+        opacity: 0.5,
+      },
     },
   },
 };
