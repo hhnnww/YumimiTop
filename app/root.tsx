@@ -77,7 +77,6 @@ const Document = withEmotionCache(
           <Experimental_CssVarsProvider
             theme={theme}
             defaultColorScheme={"dark"}
-            defaultMode="dark"
           >
             <CssBaseline enableColorScheme />
             {children}

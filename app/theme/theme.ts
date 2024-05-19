@@ -9,4 +9,5 @@ export const theme = experimental_extendTheme({
   typography: typography,
   components: components,
   shadows: shadows,
+  shape: { borderRadius: 8 },
 });
