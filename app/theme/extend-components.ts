@@ -5,7 +5,7 @@ export const components: CssVarsThemeOptions["components"] = {
     styleOverrides: {
       body: {
         FontFamily: ["Montserrat", "sans-serif"].join(","),
-        userSelect: "none",
+        fontWeight: 400,
       },
     },
   },
@@ -66,6 +66,28 @@ export const components: CssVarsThemeOptions["components"] = {
       root: {
         fontWeight: "bold",
       },
+    },
+  },
+
+  MuiTypography: {
+    styleOverrides: {
+      body2: {
+        fontWeight: "normal",
+      },
+    },
+  },
+
+  MuiCardActionArea: {
+    styleOverrides: {
+      root: {
+        fontFamily: ["Montserrat", "sans-serif"].join(","),
+      },
+    },
+  },
+
+  MuiCard: {
+    defaultProps: {
+      variant: "outlined",
     },
   },
 };

@@ -2,6 +2,7 @@ import HomeMaxTwoToneIcon from "@mui/icons-material/HomeMaxTwoTone";
 import MenuIcon from "@mui/icons-material/Menu";
 import NoteTwoToneIcon from "@mui/icons-material/NoteTwoTone";
 import PeopleAltTwoToneIcon from "@mui/icons-material/PeopleAltTwoTone";
+import SettingsBrightnessTwoToneIcon from "@mui/icons-material/SettingsBrightnessTwoTone";
 import {
   AppBar,
   Box,
@@ -10,26 +11,42 @@ import {
   Divider,
   Drawer,
   IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  ListSubheader,
   Link as MLink,
   Stack,
+  type SxProps,
+  type Theme,
   Toolbar,
   useColorScheme,
 } from "@mui/material";
 import { Link, NavLink } from "@remix-run/react";
 import { useState } from "react";
-import { theme } from "~/theme/theme";
+
+const sx: SxProps<Theme> = (theme) => ({
+  minWidth: ["220px", "auto"],
+  justifyContent: "flex-start",
+  px: 2,
+  opacity: 0.6,
+  "&.active": {
+    background: theme.palette.primary.main,
+    color: "#FFF",
+    opacity: 1,
+    ":hover": {
+      opacity: 0.8,
+    },
+  },
+  ":hover": {
+    opacity: 0.8,
+  },
+  svg: {
+    opacity: 0.4,
+  },
+});
 
 const headerMenuList = [
-  { name: "home", link: "/", icon: <HomeMaxTwoToneIcon fontSize="small" /> },
-  { name: "tours", link: "/post", icon: <NoteTwoToneIcon fontSize="small" /> },
+  { name: "首页", link: "/", icon: <HomeMaxTwoToneIcon fontSize="small" /> },
+  { name: "行程", link: "/post", icon: <NoteTwoToneIcon fontSize="small" /> },
   {
-    name: "about me",
+    name: "关于我们",
     link: "/about-me",
     icon: <PeopleAltTwoToneIcon fontSize="small" />,
   },
@@ -48,7 +65,11 @@ export const Header = () => {
             >
               <HeaderLogo />
 
-              <Box sx={{ display: ["none", "block"] }}>
+              <Box
+                sx={() => ({
+                  display: ["none", "block"],
+                })}
+              >
                 <HeaderMenuMD />
               </Box>
 
@@ -79,50 +100,21 @@ const HeaderLogo = () => {
 
 // 中屏菜单
 const HeaderMenuMD = () => {
-  const { mode, setMode } = useColorScheme();
-
   return (
-    <Stack direction={"row"} spacing={2}>
+    <Stack direction={"row"} spacing={1}>
       {headerMenuList.map((item) => (
         <Button
           key={item.name}
           component={NavLink}
           to={item.link}
           color="inherit"
-          sx={{
-            px: 2,
-            opacity: 0.6,
-            "&.active": {
-              background: theme.vars.palette.primary.main,
-              color: "#FFF",
-              opacity: 1,
-              ":hover": {
-                opacity: 1,
-              },
-            },
-            ":hover": {
-              opacity: 0.8,
-            },
-            svg: {
-              opacity: 0.6,
-            },
-          }}
+          sx={sx}
           startIcon={item.icon}
         >
           {item.name}
         </Button>
       ))}
-      <Button
-        onClick={() => {
-          if (mode === "light") {
-            setMode("dark");
-          } else {
-            setMode("light");
-          }
-        }}
-      >
-        setMode
-      </Button>
+      <SelectMode />
     </Stack>
   );
 };
@@ -137,19 +129,43 @@ const HeaderMenuXS = () => {
       </IconButton>
 
       <Drawer open={open} onClose={() => setOpen(false)}>
-        <List subheader={<ListSubheader>菜单</ListSubheader>}>
+        <Stack spacing={1} p={2} alignItems={"start"}>
           {headerMenuList.map((item) => (
-            <ListItem disablePadding disableGutters key={item.name}>
-              <ListItemButton>
-                <ListItemIcon sx={{ minWidth: "auto", pr: 2 }}>
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText sx={{ minWidth: 200 }} primary={item.name} />
-              </ListItemButton>
-            </ListItem>
+            <Button
+              key={item.name}
+              component={NavLink}
+              to={item.link}
+              color="inherit"
+              sx={sx}
+              startIcon={item.icon}
+            >
+              {item.name}
+            </Button>
           ))}
-        </List>
+          <SelectMode />
+        </Stack>
       </Drawer>
     </>
+  );
+};
+
+// 切换模式
+const SelectMode = () => {
+  const { mode, setMode } = useColorScheme();
+  return (
+    <Button
+      color="inherit"
+      onClick={() => {
+        if (mode === "light") {
+          setMode("dark");
+        } else {
+          setMode("light");
+        }
+      }}
+      sx={sx}
+      startIcon={<SettingsBrightnessTwoToneIcon />}
+    >
+      切换模式
+    </Button>
   );
 };

@@ -20,7 +20,7 @@ export default function Component() {
           alignItems={"center"}
           sx={{ width: "100%" }}
         >
-          <Card variant="outlined" sx={{ minWidth: ["100%", "600px"] }}>
+          <Card sx={{ minWidth: ["100%", "600px"] }}>
             <CardActionArea sx={{ borderRadius: 0 }}>
               <Box p={3}>THIS IS IMAGE</Box>
             </CardActionArea>
