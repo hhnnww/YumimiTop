@@ -27,9 +27,12 @@ const sx: SxProps<Theme> = (theme) => ({
   px: 2,
   opacity: 0.6,
   "&.active": {
-    background: theme.palette.primary.main,
-    color: "#FFF",
+    // background: theme.palette.primary.main,
+    color: theme.palette.primary.main,
     opacity: 1,
+    svg: {
+      opacity: 1,
+    },
     ":hover": {
       opacity: 0.8,
     },

@@ -27,6 +27,13 @@ export const components: CssVarsThemeOptions["components"] = {
 
   MuiFilledInput: {
     styleOverrides: {
+      input: ({ theme }) => ({
+        borderRadius: theme.vars.shape.borderRadius,
+        ":-webkit-autofill": {
+          WebkitBoxShadow: `0 0 0 300px ${theme.vars.palette.background.default} inset !important`,
+        },
+      }),
+
       root: ({ theme }) => ({
         "::before": {
           display: "none",
@@ -34,6 +41,7 @@ export const components: CssVarsThemeOptions["components"] = {
         "::after": {
           display: "none",
         },
+
         "&.Mui-focused": {
           outline: `2px solid ${theme.vars.palette.primary.main}`,
           backgroundColor: "transparent",
@@ -44,13 +52,6 @@ export const components: CssVarsThemeOptions["components"] = {
         borderColor: theme.vars.palette.divider,
         borderWidth: 1,
         borderStyle: "solid",
-        "& > input": {
-          borderRadius: theme.vars.shape.borderRadius,
-        },
-        "input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active":
-          {
-            WebkitBoxShadow: `0 0 0 300px ${theme.vars.palette.background.default} inset !important`,
-          },
       }),
     },
   },

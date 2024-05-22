@@ -6,7 +6,11 @@ export const color_schemes: CssVarsThemeOptions["colorSchemes"] = {
       primary: {
         main: "rgb(41, 112, 255)",
       },
-      divider: "rgb(240,240,240)",
+      divider: "rgb(248,248,248)",
+      text: {
+        primary: "rgba(0,0,0,0.6)",
+        secondary: "rgba(0,0,0,0.4)",
+      },
     },
   },
 
